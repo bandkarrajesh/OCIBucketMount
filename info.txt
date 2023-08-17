@@ -6,6 +6,10 @@ Access_Key: 483b5fa7719923d55fef0901b3340d89c1767815
 Namespace: id4kj863dlvy
 OCI_Region_Name: ap-melbourne-1
 
+Temp Mount
+
+s3fs <bucket_name> /path/to/<local_directory_name> -o passwd_file=/root/.passwd-s3fs -o url=https://<namespace_name>.compat.objectstorage.<region_ID>.oraclecloud.com -o use_path_request_style -o kernel_cache -o allow_other -o multipart_size=128 -o parallel_count=50 -o multireq_max=100 -o max_background=1000 -o endpoint=<region_ID>
+
 Step 1: Modify below content to your requirement and add in /etc/fstab 
 
 $ s3fs#<bucket_name> /path/to/<local_directory_name> fuse allow_other,use_path_request_style,passwd_file=/{HOME}/.s3fs-password,url=https://<namespace_name>.compat.objectstorage.<region_ID>.oraclecloud.com,endpoint=<region_ID>,kernel_cache,multipart_size=128,parallel_count=50,multireq_max=100,max_background=1000,_netdev 0 0
